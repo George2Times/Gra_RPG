@@ -6,7 +6,7 @@ public class Level {
     private int level;
     private Statistics statistics;
     private int[] levelValues = {
-      0,0,100,200,500,1000,2000
+      0,0,100,400,1000,2800,7800
     };
 
     public Level(Statistics statistics) {
