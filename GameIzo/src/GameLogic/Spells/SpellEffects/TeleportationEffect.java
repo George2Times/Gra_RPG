@@ -20,12 +20,16 @@ public class TeleportationEffect implements SpellEffect {
         switch(champion.getDirection()) {
             case UP:
                 champion.setY(old_y - delta);
+                break;
             case DOWN:
                 champion.setY(old_y + delta);
+                break;
             case RIGHT:
                 champion.setX(old_x + delta);
+                break;
             case LEFT:
                 champion.setX(old_x - delta);
+                break;
         }
     }
 
