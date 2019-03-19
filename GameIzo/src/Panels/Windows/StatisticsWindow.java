@@ -2,20 +2,25 @@ package Panels.Windows;
 
 import GameLogic.Champion.Champion;
 
+import javax.swing.*;
 import java.awt.*;
 
-public class StatisticsWindow {
+public class StatisticsWindow extends Component {
 
     private int size;
     private int screenX;
     private int screenY;
     private boolean active;
 
+    private JButton hitPointsPlusButton;
+
     public StatisticsWindow(int size, int screenX, int screenY) {
         this.size = size;
         this.screenX = screenX;
         this.screenY = screenY;
         this.active = false;
+
+        this.hitPointsPlusButton = new JButton();
     }
 
     public void paintWindow(Graphics g, Champion champion) {
@@ -37,6 +42,9 @@ public class StatisticsWindow {
             g.drawString(champion.getStatistics().getMaxHitPoints()+"", valueX, space);
             g.drawString("-", minusX, space);
             g.drawString("+", plusX, space);
+
+            hitPointsPlusButton.setVisible(true);
+            hitPointsPlusButton.setBounds(50,50,200,200);
 
             //mana
             space = space + 40;
@@ -74,6 +82,10 @@ public class StatisticsWindow {
 
     public void openClose() {
         this.active = !this.active;
+    }
+
+    public JButton getHitPointsPlusButton() {
+        return this.hitPointsPlusButton;
     }
 
 }
