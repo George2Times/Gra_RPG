@@ -14,6 +14,8 @@ Don't get squashed by the rising platforms.
 Instructions
 ------------
 
-Use W/A/S/D to move.
-Use F1 to change stats.
-Use ESC to exit.
+Use W/A/S/D to move. <br />
+Use F1 to change stats. <br />
+Use ESC to exit. <br />
+
+![Alt text](resources/GameScreenshot.png?raw=true "Game graphics")
