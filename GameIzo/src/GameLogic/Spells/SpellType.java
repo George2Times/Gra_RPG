@@ -1,5 +1,5 @@
 package GameLogic.Spells;
 
 public enum SpellType {
-    Fireball, Heal, Shield;
+    Fireball, Heal, Shield, Teleportation
 }
