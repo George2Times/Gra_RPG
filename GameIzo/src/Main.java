@@ -1,4 +1,5 @@
 import Panels.MainPanel;
+import com.sun.xml.internal.bind.v2.TODO;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,6 +17,8 @@ public class Main {
 
         MainPanel mainPanel = new MainPanel();
         frame.add(mainPanel, BorderLayout.CENTER);
+
+        TODO.checkSpec();
 
         frame.addKeyListener(new KeyListener() {
             @Override
