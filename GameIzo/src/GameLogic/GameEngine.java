@@ -8,6 +8,7 @@ import GameLogic.Spells.*;
 import GameLogic.Spells.SpellEffects.FireballEffect;
 import GameLogic.Spells.SpellEffects.HealEffect;
 import GameLogic.Spells.SpellEffects.ShieldEffect;
+import GameLogic.Spells.SpellEffects.TeleportationEffect;
 import GameLogic.Units.Bandit;
 import GameLogic.Units.Golem;
 import GameLogic.Units.Unit;
@@ -52,7 +53,7 @@ public class GameEngine extends Thread {
         this.addSpellToChampion(this.spellSet.get(0));
         this.addSpellToChampion(this.spellSet.get(1));
         this.addSpellToChampion(this.spellSet.get(2));
-        this.addSpellToChampion(this.spellSet.get(2));
+        this.addSpellToChampion(this.spellSet.get(3));
     }
 
     public void control(KeyEvent e) {
@@ -193,9 +194,12 @@ public class GameEngine extends Thread {
         Spell s1 = new Spell(SpellType.Fireball, "Deals 100 dmg", ChampionImages.scaleImage("resources/spells/fire.png",spellSize ,spellSize), 20, 20, new FireballEffect());
         Spell s2 = new Spell(SpellType.Heal, "Heals for 50 hp", ChampionImages.scaleImage("resources/spells/heal.png",spellSize ,spellSize), 50, 20, new HealEffect());
         Spell s3 = new Spell(SpellType.Shield, "Armor increased for 5 seconds", ChampionImages.scaleImage("resources/spells/shield.png",spellSize ,spellSize), 80, 20, new ShieldEffect());
+        Spell s4 = new Spell(SpellType.Teleportation, "Teleport champion 32 forward", ChampionImages.scaleImage("resources/spells/teleportation.png",spellSize ,spellSize), 10, 10, new TeleportationEffect());
+
         this.spellSet.add(s1);
         this.spellSet.add(s2);
         this.spellSet.add(s3);
+        this.spellSet.add(s4);
     }
 
     private void addSpellToChampion(Spell spell) {
