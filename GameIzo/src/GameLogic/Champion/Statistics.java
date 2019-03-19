@@ -21,7 +21,7 @@ public class Statistics {
 
     public Statistics() {
         this.hpRegen = 1;
-        this.manaRegen = 1;
+        this.manaRegen = 3;
         this.maxHitPoints = 100;
         this.hitPoints = this.maxHitPoints;
         this.maxManaPoints = 100;

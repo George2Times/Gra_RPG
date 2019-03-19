@@ -43,12 +43,12 @@ public class GameEngine extends Thread {
         this.initSpellSet();
         this.initUnitSet();
 
-        /*this.addItemToChampion(this.itemSet.get(0));
+        this.addItemToChampion(this.itemSet.get(0));
         this.addItemToChampion(this.itemSet.get(1));
         this.addItemToChampion(this.itemSet.get(2));
         this.addItemToChampion(this.itemSet.get(3));
         this.addItemToChampion(this.itemSet.get(4));
-        this.addItemToChampion(this.itemSet.get(5));*/
+        this.addItemToChampion(this.itemSet.get(5));
 
         this.addSpellToChampion(this.spellSet.get(0));
         this.addSpellToChampion(this.spellSet.get(1));

@@ -15,7 +15,7 @@ public class TeleportationEffect implements SpellEffect {
         int old_x = champion.getX();
         int old_y = champion.getY();
         // teleportation distance
-        int delta = 100;
+        int delta = 200;
 
         switch(champion.getDirection()) {
             case UP:
