@@ -21,11 +21,11 @@ public class MainPanel extends JPanel {
 
     private StatisticsWindow statisticsWindow;
 
-    int mapSizeX = 1000;
-    int mapSizeY = 1000;
-    int mapSquareSize = 16;
+    private int mapSizeX = 1000;
+    private int mapSizeY = 1000;
+    private int mapSquareSize = 16;
 
-    int topPanelHeight;
+    private int topPanelHeight;
 
     public MainPanel() {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -117,8 +117,8 @@ public class MainPanel extends JPanel {
             int positionY = this.gameEngine.getUnitSet().get(i).getY() - this.gameEngine.getScreenPosition().getY() + this.gameEngine.getScreenPosition().getGameScreenY();
             this.gameEngine.getUnitSet().get(i).getImage().paintIcon(this, g, positionX, positionY);
 
-            //g.setColor(Color.MAGENTA);
-            //g.drawRect(positionX, positionY, this.gameEngine.getUnitSet().get(i).getWidth(), this.gameEngine.getUnitSet().get(i).getHeight());
+            g.setColor(Color.MAGENTA);
+            g.drawRect(positionX, positionY, this.gameEngine.getUnitSet().get(i).getWidth(), this.gameEngine.getUnitSet().get(i).getHeight());
 
             int width = this.gameEngine.getUnitSet().get(i).getCollisionWidth() + 20;
             int height = 12;
@@ -137,10 +137,10 @@ public class MainPanel extends JPanel {
             this.paintBlood(g, this.gameEngine.getUnitSet().get(i), positionX, positionY);
 
             //collision unit
-            /*positionX = this.gameEngine.getUnitSet().get(i).getCollisionX() - this.gameEngine.getScreenPosition().getX() + this.gameEngine.getScreenPosition().getGameScreenX();
+            positionX = this.gameEngine.getUnitSet().get(i).getCollisionX() - this.gameEngine.getScreenPosition().getX() + this.gameEngine.getScreenPosition().getGameScreenX();
             positionY = this.gameEngine.getUnitSet().get(i).getCollisionY() - this.gameEngine.getScreenPosition().getY() + this.gameEngine.getScreenPosition().getGameScreenY();
             g.setColor(Color.GREEN);
-            g.drawRect(positionX, positionY, this.gameEngine.getUnitSet().get(i).getCollisionWidth(), this.gameEngine.getUnitSet().get(i).getCollisionHeight());*/
+            g.drawRect(positionX, positionY, this.gameEngine.getUnitSet().get(i).getCollisionWidth(), this.gameEngine.getUnitSet().get(i).getCollisionHeight());
         }
     }
 
@@ -152,18 +152,18 @@ public class MainPanel extends JPanel {
 
     private void paintInfo(Graphics g) {
         ArrayList<Info> infoList = this.gameEngine.getChampion().getInfoSet().getInfoList();
-        for (int i = 0; i < infoList.size(); i++) {
-            int positionX = infoList.get(i).getX() - this.gameEngine.getScreenPosition().getX() + this.gameEngine.getScreenPosition().getGameScreenX();
-            int positionY = infoList.get(i).getY() - this.gameEngine.getScreenPosition().getY() + this.gameEngine.getScreenPosition().getGameScreenY();
+        for (Info anInfoList : infoList) {
+            int positionX = anInfoList.getX() - this.gameEngine.getScreenPosition().getX() + this.gameEngine.getScreenPosition().getGameScreenX();
+            int positionY = anInfoList.getY() - this.gameEngine.getScreenPosition().getY() + this.gameEngine.getScreenPosition().getGameScreenY();
 
 
             g.setColor(Color.BLACK);
-            g.drawString(infoList.get(i).getMessage(), positionX - 1, positionY - 1);
-            g.drawString(infoList.get(i).getMessage(), positionX + 1, positionY - 1);
-            g.drawString(infoList.get(i).getMessage(), positionX - 1, positionY + 1);
-            g.drawString(infoList.get(i).getMessage(), positionX + 1, positionY + 1);
-            g.setColor(infoList.get(i).getColor());
-            g.drawString(infoList.get(i).getMessage(), positionX, positionY);
+            g.drawString(anInfoList.getMessage(), positionX - 1, positionY - 1);
+            g.drawString(anInfoList.getMessage(), positionX + 1, positionY - 1);
+            g.drawString(anInfoList.getMessage(), positionX - 1, positionY + 1);
+            g.drawString(anInfoList.getMessage(), positionX + 1, positionY + 1);
+            g.setColor(anInfoList.getColor());
+            g.drawString(anInfoList.getMessage(), positionX, positionY);
 
         }
 
