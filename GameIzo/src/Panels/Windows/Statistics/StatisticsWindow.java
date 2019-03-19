@@ -135,7 +135,7 @@ public class StatisticsWindow extends JComponent {
 
         this.confirmButton = new PlusButton(800,600,50,50);
         this.confirmButton.addActionListener(e -> {
-            this.openClose();
+            this.active = false;
             this.champion.getStatistics().addStats(this.hpPoints, this.manaPoints, this.damagePoints, this.abilityPoints);
             this.hpPoints = 0;
             this.manaPoints = 0;
