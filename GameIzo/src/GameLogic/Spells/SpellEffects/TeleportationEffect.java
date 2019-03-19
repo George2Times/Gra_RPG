@@ -15,17 +15,21 @@ public class TeleportationEffect implements SpellEffect {
         int old_x = champion.getX();
         int old_y = champion.getY();
         // teleportation distance
-        int delta = 32;
+        int delta = 180;
 
         switch(champion.getDirection()) {
             case UP:
                 champion.setY(old_y - delta);
+                break;
             case DOWN:
                 champion.setY(old_y + delta);
+                break;
             case RIGHT:
                 champion.setX(old_x + delta);
+                break;
             case LEFT:
                 champion.setX(old_x - delta);
+                break;
         }
     }
 
