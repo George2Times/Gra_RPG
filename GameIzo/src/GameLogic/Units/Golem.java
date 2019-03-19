@@ -11,7 +11,7 @@ public class Golem extends Unit {
         this.armor = 8;
         this.damageMin = 20;
         this.damageMax = 27;
-        this.experience = 120;
+        this.experience = 60;
         this.width = 83;
         this.height = 57;
         this.gold = 60;

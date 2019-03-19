@@ -133,9 +133,13 @@ public class StatisticsWindow extends JComponent {
             }
         });
 
-        this.confirmButton = new PlusButton(800,600,50,50);
+        int width = size;
+        int height = (int) (size*0.4);
+        int x = screenX - (int) (7.5)*size - width/2;
+        int y = screenY - (int) (2.65*size);
+        this.confirmButton = new PlusButton(x,y,width,height);
         this.confirmButton.addActionListener(e -> {
-            this.openClose();
+            this.active = false;
             this.champion.getStatistics().addStats(this.hpPoints, this.manaPoints, this.damagePoints, this.abilityPoints);
             this.hpPoints = 0;
             this.manaPoints = 0;
@@ -198,8 +202,11 @@ public class StatisticsWindow extends JComponent {
             ChampionImages.scaleImage("resources/plus.png",buttonWidth, buttonHeight).paintIcon(this, g, plusX, space);
 
             //confirm
-            g.setColor(Color.RED);
-            g.fillRect(800, 600, 50, 50);
+            int width = size;
+            int height = (int) (size*0.4);
+            int x = screenX - (int) (7.5)*size - width/2;
+            int y = screenY - (int) (2.65*size);
+            ChampionImages.scaleImage("resources/confirm.png",width ,height).paintIcon(this, g, x, y);
         }
     }
 

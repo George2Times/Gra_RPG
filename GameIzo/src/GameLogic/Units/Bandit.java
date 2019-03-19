@@ -11,7 +11,7 @@ public class Bandit extends Unit{
         this.armor = 12;
         this.damageMin = 12;
         this.damageMax = 15;
-        this.experience = 100;
+        this.experience = 40;
         this.width = 71;
         this.height = 55;
         this.gold = 30;

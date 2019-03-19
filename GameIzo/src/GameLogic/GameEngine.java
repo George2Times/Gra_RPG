@@ -209,53 +209,25 @@ public class GameEngine extends Thread {
     private void initUnitSet() {
         this.unitSet = new ArrayList<>();
 
-        /*Unit u1 = new Unit(30, 40,0,50,10,11,60, 71,55, 50, ChampionImages.scaleImage("resources/units/unit1.png",38 ,60), "bandit", 5);
-        Unit u2 = new Unit(30, 600,200,50,10,11,60, 71,55, 100, ChampionImages.scaleImage("resources/units/unit1.png",38 ,60), "bandit", 5);
-        Unit u3 = new Unit(30, 580,200,50,10,11,60, 71,55, 80, ChampionImages.scaleImage("resources/units/unit1.png",38 ,60), "bandit", 5);
-        Unit u4 = new Unit(30, 250,400,50,10,11,60, 71,55, 80, ChampionImages.scaleImage("resources/units/unit1.png",38 ,60), "bandit", 5);
-        Unit u5 = new Unit(30, 300,700,50,10,11,60, 71,55, 80, ChampionImages.scaleImage("resources/units/unit1.png",38 ,60), "bandit", 5);
-        Unit u6 = new Unit(30, 340,760,50,10,11,60, 71,55, 80, ChampionImages.scaleImage("resources/units/unit1.png",38 ,60), "bandit", 5);
-        Unit u7 = new Unit(30, 300,820,50,10,11,60, 71,55, 80, ChampionImages.scaleImage("resources/units/unit1.png",38 ,60), "bandit", 5);
 
-        u1.setCollision(0,0,28,55);
-        u2.setCollision(0,0,28,55);
-        u3.setCollision(0,0,28,55);
-        u4.setCollision(0,0,28,55);
-        u5.setCollision(0,0,28,55);
-        u6.setCollision(0,0,28,55);
-        u7.setCollision(0,0,28,55);
+        addUnit(new Bandit(100,100));
+        addUnit(new Bandit(100,200));
+        addUnit(new Bandit(100,300));
+        addUnit(new Bandit(100,400));
+        addUnit(new Golem(1200,400));
+        addUnit(new Golem(1200,500));
+        addUnit(new Golem(1200,600));
+        addUnit(new Golem(1300,600));
+        addUnit(new Golem(1100,600));
 
-
-        u1.move(champion);
-        u2.move(champion);
-        u3.move(champion);
-        u4.move(champion);
-        u5.move(champion);
-        u6.move(champion);
-        u7.move(champion);
-
-
-        this.unitSet.add(u1);
-        this.unitSet.add(u2);
-        this.unitSet.add(u3);
-        this.unitSet.add(u4);
-        this.unitSet.add(u5);
-        this.unitSet.add(u6);
-        this.unitSet.add(u7);*/
-
-        Unit u1 = new Bandit(200, 300);
-        Unit u2 = new Bandit(1000, 300);
-        Unit u3 = new Golem(1000, 600);
-
-        u1.move(champion);
-        u2.move(champion);
-        u3.move(champion);
-        this.unitSet.add(u1);
-        this.unitSet.add(u2);
-        this.unitSet.add(u3);
     }
 
     public ArrayList<Unit> getUnitSet() {
         return unitSet;
+    }
+
+    private void addUnit(Unit u) {
+        u.move(champion);
+        this.unitSet.add(u);
     }
 }
