@@ -37,11 +37,6 @@ public class Level {
     }
 
     public void levelUp() {
-        this.statistics.setMaxManaPoints(this.statistics.getMaxManaPoints() + 10);
-        this.statistics.setMaxHitPoints(this.statistics.getMaxHitPoints() + 10);
-        this.statistics.setMinDamage(this.statistics.getMinDamage() + 2);
-        this.statistics.setMaxDamage(this.statistics.getMaxDamage() + 2);
-        this.statistics.setArmor(this.statistics.getArmor() + 2);
-        this.statistics.setAbilityPower(this.statistics.getAbilityPower() + 3);
+        this.statistics.setPointsAvailable(5);
     }
 }

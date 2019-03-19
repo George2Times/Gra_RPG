@@ -3,7 +3,7 @@ package Panels;
 import GameLogic.GameEngine;
 import GameLogic.InfoSet.Info;
 import GameLogic.Units.Unit;
-import Panels.Windows.StatisticsWindow;
+import Panels.Windows.Statistics.StatisticsWindow;
 
 import javax.swing.*;
 import java.awt.*;
@@ -47,7 +47,18 @@ public class MainPanel extends JPanel {
         this.topPanel = new TopPanel(topPanelHeight, this.gameEngine.getChampion(), this.topPanelHeight * 9 / 20);
         this.gameScreen.setScreenPosition(this.gameEngine.getScreenPosition());
 
-        this.statisticsWindow = new StatisticsWindow(topPanelHeight, screenX, screenY);
+        this.statisticsWindow = new StatisticsWindow(topPanelHeight, screenX, screenY, gameEngine.getChampion());
+
+        add(this.statisticsWindow.getHitPointsPlusButton());
+        add(this.statisticsWindow.getHitPointsMinusButton());
+        add(this.statisticsWindow.getManaPointsPlusButton());
+        add(this.statisticsWindow.getManaPointsMinusButton());
+        add(this.statisticsWindow.getDamagePointsPlusButton());
+        add(this.statisticsWindow.getDamagePointsMinusButton());
+        add(this.statisticsWindow.getAbilityPointsPlusButton());
+        add(this.statisticsWindow.getAbilityPointsMinusButton());
+
+        add(this.statisticsWindow.getConfirmButton());
 
         Thread thread = new Thread(() -> {
             while (true) {
@@ -85,7 +96,7 @@ public class MainPanel extends JPanel {
 
         this.paintInfo(g);
 
-        this.statisticsWindow.paintWindow(g, gameEngine.getChampion());
+        this.statisticsWindow.paintComponent(g);
 
     }
 

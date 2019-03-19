@@ -17,6 +17,8 @@ public class Statistics {
     private int hpRegen;
     private int manaRegen;
 
+    private int pointsAvailable;
+
     public Statistics() {
         this.hpRegen = 1;
         this.manaRegen = 1;
@@ -29,6 +31,8 @@ public class Statistics {
         this.armor = 3;
         this.abilityPower = 1;
         this.gold = 0;
+
+        this.pointsAvailable = 5;
 
         Thread thread = new Thread(() -> {
             while(this.hitPoints > 0) {
@@ -157,5 +161,26 @@ public class Statistics {
 
     public void addGold(int gold) {
         this.gold += gold;
+    }
+
+    public int getPointsAvailable() {
+        return pointsAvailable;
+    }
+
+    public void addStats(int hp, int mana, int dmg, int ability) {
+        this.hitPoints += hp*10;
+        this.maxHitPoints += hp*10;
+
+        this.manaPoints += mana*10;
+        this.maxManaPoints += mana*10;
+
+        this.minDamage += dmg;
+        this.maxDamage += dmg;
+
+        this.abilityPower += ability;
+    }
+
+    public void setPointsAvailable(int points) {
+        this.pointsAvailable += points;
     }
 }
