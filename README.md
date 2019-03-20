@@ -1,19 +1,16 @@
 # Gra_RPG
 v 0.1
 
-FallDown
+Graphics
 ========
-
-Don't get squashed by the rising platforms.
-
-    * To build: `make`
-    * To package: `make package`
-    * To get the docs: `make doc`
-    * To play: `make play`
+![Alt text](resources/meta/GameScreenshot.png?raw=true "Game graphics")
 
 Instructions
 ------------
+    Use (W, A, S, D) to move.
+    Use F1 to change stats.
+    Use ESC to exit.
 
-Use W/A/S/D to move.
-Use F1 to change stats.
-Use ESC to exit.
+Project Scructure
+------------
+![Alt text](resources/meta/GraUML.png?raw=true "UML")
