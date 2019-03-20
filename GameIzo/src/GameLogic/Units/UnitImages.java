@@ -17,7 +17,7 @@ public class UnitImages {
     private Types type;
     private boolean isRightSide;
 
-    public UnitImages(String name, int frames, int width, int height) {
+    UnitImages(String name, int frames, int width, int height) {
         this.frames = frames;
 
         this.idle = new ImageIcon[frames];
@@ -83,18 +83,18 @@ public class UnitImages {
     }
 
 
-    public void setType(Types type) {
+    private void setType(Types type) {
         if (this.type != type) {
             this.type = type;
             this.counter = 0;
         }
     }
 
-    public void incAttackCounter() {
+    void incAttackCounter() {
         this.counter += 3;
     }
 
-    public void setIdle() {
+    void setIdle() {
         if(isRightSide) {
             this.setType(Types.IDLE);
         }
@@ -103,7 +103,7 @@ public class UnitImages {
         }
     }
 
-    public void setAttack() {
+    void setAttack() {
         if(isRightSide) {
             this.setType(Types.ATTACK);
         }
@@ -112,7 +112,7 @@ public class UnitImages {
         }
     }
 
-    public void setWalk() {
+    void setWalk() {
         if(isRightSide) {
             this.setType(Types.WALK);
         }
@@ -121,7 +121,7 @@ public class UnitImages {
         }
     }
 
-    public void setSide(boolean isRight) {
+    void setSide(boolean isRight) {
         this.isRightSide = isRight;
     }
 }
