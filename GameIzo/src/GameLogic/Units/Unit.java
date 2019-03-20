@@ -219,14 +219,20 @@ public class Unit {
 
     private void switchDirection(int champX) {
         if(this.getCollisionX() + this.getCollisionWidth()/2 < champX) {
-            //right
-            this.unitImages.setSide(true);
-            this.switchSide(true);
+            if(!this.side) {
+                //right
+                this.unitImages.setSide(true);
+                this.switchSide(true);
+                this.x = this.x + collisionXLeft;
+            }
         }
         else {
-            //left
-            this.unitImages.setSide(false);
-            this.switchSide(false);
+            if(this.side) {
+                //left
+                this.unitImages.setSide(false);
+                this.switchSide(false);
+                this.x = this.x - collisionXLeft;
+            }
         }
     }
 

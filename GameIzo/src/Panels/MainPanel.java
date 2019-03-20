@@ -96,6 +96,8 @@ public class MainPanel extends JPanel {
 
         this.paintInfo(g);
 
+        this.paintMiniMap(g);
+
         this.statisticsWindow.paintComponent(g);
 
     }
@@ -177,6 +179,27 @@ public class MainPanel extends JPanel {
             g.drawString(anInfoList.getMessage(), positionX, positionY);
 
         }
+    }
+
+    private void paintMiniMap(Graphics g) {
+        int x = this.screenX - this.screenX/4;
+        int y = this.screenY - this.screenY/4;
+        int width = this.screenX - x;
+        int height = this.screenY - y;
+
+        g.setColor(Color.BLACK);
+        g.fillRect(x,y,width,height);
+
+        int mapSizeX = this.mapSizeX * mapSquareSize;
+        int mapSizeY = this.mapSizeY * mapSquareSize;
+
+        int currentAreaX = this.gameEngine.getScreenPosition().getX() * width / mapSizeX + x;
+        int currentAreaY = this.gameEngine.getScreenPosition().getY() * height / mapSizeY + y;
+        int currentAreaWidth = this.screenX * width / mapSizeX;
+        int currentAreaHeight = this.screenY * height / mapSizeY;
+
+        g.setColor(Color.RED);
+        g.drawRect(currentAreaX, currentAreaY, currentAreaWidth, currentAreaHeight);
 
     }
 }
