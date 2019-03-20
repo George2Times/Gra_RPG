@@ -30,7 +30,6 @@ public class Spell {
         this.spellEffect = spellEffect;
 
         this.resetThread();
-
     }
 
     public SpellType getName() {
@@ -92,5 +91,9 @@ public class Spell {
 
     public void useSpell(Champion champion, ArrayList<Unit> unitSet) {
             this.spellEffect.useSpell(champion, this, unitSet);
+    }
+
+    public SpellEffect getSpellEffect() {
+        return this.spellEffect;
     }
 }
