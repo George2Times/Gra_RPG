@@ -7,7 +7,7 @@ Graphics
 
 Instructions
 ------------
-    se (W, A, S, D) to move.
+    Use (W, A, S, D) to move.
     Use F1 to change stats.
     Use ESC to exit.
 
