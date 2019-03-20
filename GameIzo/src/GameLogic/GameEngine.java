@@ -209,7 +209,6 @@ public class GameEngine extends Thread {
     private void initUnitSet() {
         this.unitSet = new ArrayList<>();
 
-
         addUnit(new Bandit(100,100));
         addUnit(new Bandit(100,200));
         addUnit(new Bandit(100,300));

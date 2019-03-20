@@ -9,28 +9,75 @@ import GameLogic.Units.Unit;
 import java.util.ArrayList;
 
 public class TeleportationEffect implements SpellEffect {
+    private int oldX;
+    private int oldY;
+    private int newX;
+    private int newY;
+
+    public int getOldX() {
+        return oldX;
+    }
+
+    public void setOldX(int oldX) {
+        this.oldX = oldX;
+    }
+
+    public int getOldY() {
+        return oldY;
+    }
+
+    public void setOldY(int oldY) {
+        this.oldY = oldY;
+    }
+
+    public int getNewX() {
+        return newX;
+    }
+
+    public void setNewX(int newX) {
+        this.newX = newX;
+    }
+
+    public int getNewY() {
+        return newY;
+    }
+
+    public void setNewY(int newY) {
+        this.newY = newY;
+    }
 
     @Override
     public void useSpell(Champion champion, Spell spell, ArrayList<Unit> unitSet) {
-        int old_x = champion.getX();
-        int old_y = champion.getY();
+        oldX = champion.getX();
+        oldY = champion.getY();
+
         // teleportation distance
         int delta = 200;
 
         switch(champion.getDirection()) {
             case UP:
-                champion.setY(old_y - delta);
+                newX = oldX;
+                newY = oldY - delta;
+                champion.setY(newY);
                 break;
             case DOWN:
-                champion.setY(old_y + delta);
+                newX = oldX;
+                newY = oldY + delta;
+                champion.setY(newY);
                 break;
             case RIGHT:
-                champion.setX(old_x + delta);
+                newX = oldX + delta;
+                newY = oldY;
+                champion.setX(newX);
                 break;
             case LEFT:
-                champion.setX(old_x - delta);
+                newX = oldX - delta;
+                newY = oldY;
+                champion.setX(newX);
                 break;
         }
     }
+
+
 
 }

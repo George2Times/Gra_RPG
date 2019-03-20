@@ -6,6 +6,7 @@ import GameLogic.Spells.SpellEffects.FireballEffect;
 import Panels.Animations.Fireball;
 import Panels.Animations.Heal;
 import Panels.Animations.Shield;
+import Panels.Animations.Teleportation;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,9 +20,10 @@ public class GameScreen extends JComponent {
     private int height;
     private Map gameMap;
 
+    private Fireball fireball;
     private Heal heal;
     private Shield shield;
-    private Fireball fireball;
+    private Teleportation teleportation;
     private FireballEffect fireballEffect;
 
     public GameScreen(int x, int y, int width, int height, int mapSizeX, int mapSizeY, int mapSquareSize) {
@@ -34,6 +36,7 @@ public class GameScreen extends JComponent {
         this.heal = new Heal();
         this.shield = new Shield();
         this.fireball = new Fireball();
+        this.teleportation = new Teleportation();
         this.fireballEffect = new FireballEffect();
     }
 
@@ -110,6 +113,26 @@ public class GameScreen extends JComponent {
             });
 
             if (this.shield.getCounter() == 0) {
+                thread.start();
+            }
+        }
+
+        if(champion.getSpellList().get(3).getActive()) {
+            this.teleportation.paintAnimation(g, champion, positionX, positionY);
+            Thread thread = new Thread(() -> {
+                while (this.teleportation.getCounter() < 3) {
+                    this.teleportation.incCounter();
+                    try {
+                        Thread.sleep(250);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                this.teleportation.resetCounter();
+                champion.getSpellList().get(3).setActive(false);
+            });
+
+            if (this.teleportation.getCounter() == 0) {
                 thread.start();
             }
         }
